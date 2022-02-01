@@ -8,7 +8,7 @@ interface IUserRequest {
 }
 
 class CreateUser {
-    async execute({name, userName, password}: IUserRequest) {
+    async execute({name, userName, password}: IUserRequest)  {
         // Verify if user exists
         let user = await client.user.findFirst({
             where: {
