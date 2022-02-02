@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/api/main.ts"
+    "dev": "ts-node-dev --ignore-watch node_modules src/api/main.ts"
   },
   "repository": {
     "type": "git",
