@@ -1,5 +1,6 @@
 import {client} from "../../../persistence/prisma/client";
 import {hash} from "bcryptjs";
+import {IUser} from "../../../domain/User";
 
 interface IUserRequest {
     name: string;
@@ -8,7 +9,7 @@ interface IUserRequest {
 }
 
 class CreateUser {
-    async execute({name, userName, password}: IUserRequest)  {
+    async execute({name, userName, password}: IUserRequest): Promise<IUser>  {
         // Verify if user exists
         let user = await client.user.findFirst({
             where: {

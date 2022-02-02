@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {AuthenticateUser} from "../../application/features/auth/authenticateUser";
+import {AuthenticateUser} from "../../application/features/auth/AuthenticateUser";
 
 export class AuthController {
     async handleAuthentication(request: Request, response: Response) {

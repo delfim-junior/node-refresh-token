@@ -2,6 +2,7 @@ import {client} from "../../../persistence/prisma/client";
 import {compare} from "bcryptjs";
 import {JwtGenerator} from "../../../infrastructure/security/JwtGenerator";
 import {IUser} from "../../../domain/User";
+import {RefreshTokenGenerator} from "../../../infrastructure/security/RefreshTokenGenerator";
 
 interface IRequest {
     userName: string;
@@ -33,6 +34,9 @@ export class AuthenticateUser {
         const jwtGenerator = new JwtGenerator();
         const token = jwtGenerator.getToken(loggedUser);
 
-        return {token};
+        const generatedRefreshToken = new RefreshTokenGenerator();
+        const refreshToken = await generatedRefreshToken.execute(loggedUser.id);
+
+        return {token, refreshToken};
     }
 }
