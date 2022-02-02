@@ -32,7 +32,7 @@ export class AuthenticateUser {
 
         // Generate User token
         const jwtGenerator = new JwtGenerator();
-        const token = jwtGenerator.getToken(loggedUser);
+        const token = jwtGenerator.getToken(loggedUser.id);
 
         const generatedRefreshToken = new RefreshTokenGenerator();
         const refreshToken = await generatedRefreshToken.execute(loggedUser.id);

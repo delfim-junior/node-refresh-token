@@ -17,4 +17,6 @@ router.get('/api/dishes', ensureAuthentication, (request: Request, response: Res
     ]);
 });
 
+router.get('/api/auth', authController.handleRefreshToken);
+
 export {router};
